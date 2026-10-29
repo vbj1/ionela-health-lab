@@ -372,3 +372,19 @@ input:focus,textarea:focus{border-color:var(--ink);outline:none}
 .i.wa{fill:currentColor;stroke:none}
 .fab-wa{background:#25D366}
 .fab .i.wa{width:26px;height:26px}
+
+/* mobile footer: everything centred */
+@media (max-width:760px){
+  .foot-cta{flex-direction:column;justify-content:center;text-align:center}
+  .foot-cta h2{max-width:none}
+  .foot-btns{justify-content:center;width:100%}
+  .foot-btns .btn{flex:1 1 40%}
+  .foot-grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:32px}
+  .foot-brand{display:flex;flex-direction:column;align-items:center}
+  .foot-brand p{margin-inline:auto}
+  .socials{justify-content:center}
+  .foot-col{align-items:center}
+  .foot-col a,.foot-col .where{justify-content:center}
+  .foot-bottom{flex-direction:column;align-items:center;text-align:center}
+}
+.foot-brand .brand{order:0}
