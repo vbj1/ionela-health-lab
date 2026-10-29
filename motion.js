@@ -5,7 +5,7 @@ if (!calm) {
   const ease = [0.22, 1, 0.36, 1];
 
   // hero entrance
-  const heroBits = document.querySelectorAll(".hero-copy > *, .hero-visual .photo, .hero-visual .float");
+  const heroBits = document.querySelectorAll(".hero-copy > *, .hero-visual .photo, .hero-visual .sticker");
   heroBits.forEach(el => (el.style.opacity = 0));
   animate(heroBits, { opacity: [0, 1], y: [28, 0] }, { duration: 0.9, delay: stagger(0.09), ease });
 
