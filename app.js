@@ -39,7 +39,7 @@
       'faq.2q':'How does the online option work?','faq.2a':'You get the plan in an app, send feedback and videos, and I adjust weekly.',
       'faq.3q':'Do I have to follow a strict diet?','faq.3a':'No. We build flexible, sustainable habits with no forbidden foods.',
       'faq.4q':'Where are in-person sessions held?','faq.4a':'In Brașov. We agree the exact location at the first meeting.',
-      'ct.eyebrow':"Let's talk",'ct.title':'Your first session is the beginning.','ct.p':"Message me and let's talk about what you really want. No pressure, no empty promises. I reply as soon as I can.",
+      'ct.eyebrow':"Let's talk",'ct.title':'Your first session is the beginning.','ct.p':"Message me and let's talk about what you really want. No pressure, no empty promises. I reply fast 💬",
       'ct.name':'Name','ct.contact':'Phone or email','ct.goal':'Your goal','ct.send':'Send'
     }
   };
@@ -97,6 +97,31 @@
     m.textContent = d.get('name').trim() && d.get('contact').trim() ? msgs[lang].ok : msgs[lang].err;
     if (d.get('name').trim() && d.get('contact').trim()) f.reset();
   });
+
+  // anchor links: land the section's heading just under the nav, then correct for any layout shift
+  const place = el => {
+    if (el.id === 'top') return 0;
+    const first = el.querySelector('.eyebrow, h2') || el;
+    return Math.max(0, first.getBoundingClientRect().top + scrollY - 108);
+  };
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    history.replaceState(null, '', '#' + el.id);
+    scrollTo({ top: place(el), behavior: 'smooth' });
+    let tries = 0;
+    const settle = () => {
+      const want = place(el);
+      if (Math.abs(want - scrollY) > 4 && tries++ < 3) { scrollTo({ top: want, behavior: 'smooth' }); setTimeout(settle, 700); }
+    };
+    setTimeout(settle, 900);
+  }));
+
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 40);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 })();
