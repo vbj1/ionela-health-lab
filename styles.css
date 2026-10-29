@@ -2,7 +2,7 @@
   --cream:#FFF6F0; --blush:#FADCD2; --peach:#FF9E80; --rose:#E5607A; --plum:#35202B; --sage:#A9C5A0;
   --muted:#7a5c68;
   --r-sm:16px; --r-md:24px; --r-lg:32px; --r-pill:999px;
-  --font-d:'Fraunces',Georgia,serif; --font-b:'Plus Jakarta Sans',system-ui,sans-serif;
+  --font-d:'Fraunces',Georgia,serif; --font-s:'Barlow Condensed','Arial Narrow',sans-serif; --font-b:'Plus Jakarta Sans',system-ui,sans-serif;
   --shadow:0 10px 40px -12px rgba(229,96,122,.28);
   --ease:cubic-bezier(.22,1,.36,1);
 }
@@ -18,7 +18,7 @@ h1{font-size:clamp(2.4rem,6.4vw,4.8rem)}
 h1 em{font-style:italic;background:linear-gradient(90deg,var(--peach),var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent}
 h2{font-size:clamp(1.9rem,4.2vw,3rem)}
 h3{font-size:1.3rem}
-.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.eyebrow{font-family:var(--font-s);font-size:1rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
 .lead{font-size:clamp(1.05rem,1.8vw,1.25rem);color:var(--muted);max-width:52ch;margin-top:20px}
 .sec-head{margin-bottom:40px;max-width:680px}
 .demo-note{margin-top:10px;font-size:.85rem;color:var(--muted);font-style:italic}
@@ -80,7 +80,7 @@ html[lang=ro] .lang [data-l=en],html[lang=en] .lang [data-l=ro]{display:inline}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 4px rgba(229,96,122,.2)}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .stats{list-style:none;display:flex;gap:28px;flex-wrap:wrap;margin-top:40px;padding:0}
-.stats b{display:block;font:600 1.7rem var(--font-d)}
+.stats b{display:block;font:700 2rem var(--font-s);letter-spacing:.02em}
 .stats span{font-size:.85rem;color:var(--muted)}
 .hero-visual{position:relative}
 .ph{display:grid;place-items:center;text-align:center;color:rgba(53,32,43,.55);font-size:.85rem;font-weight:500;background:linear-gradient(160deg,#ffd9c9,#ffb3c1 60%,#f6c6d8);position:relative;overflow:hidden}
@@ -159,11 +159,55 @@ input,textarea{font:inherit;padding:14px 16px;border-radius:var(--r-sm);border:1
 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
 
+/* PHOTOS */
+.photo img,.gym-photo img,.fuel img,.progress img{display:block;width:100%;height:100%;object-fit:cover}
+.photo{overflow:hidden;background:var(--blush)}
+.hero-visual .photo{box-shadow:0 30px 60px -24px rgba(229,96,122,.55)}
+.about-ph{border-radius:var(--r-lg)}
+
+/* TICKER */
+main{overflow-x:clip}
+.ticker{overflow:hidden;background:var(--plum);color:var(--cream);padding:14px 0;transform:rotate(-1.2deg);margin-block:16px;width:104%;margin-left:-2%}
+.ticker-track{display:flex;width:max-content;animation:tick 28s linear infinite}
+.ticker ul{display:flex;list-style:none;padding:0}
+.ticker li{font:700 1.5rem var(--font-s);letter-spacing:.16em;text-transform:uppercase;padding-inline:28px;display:flex;align-items:center;gap:56px;white-space:nowrap}
+.ticker li::after{content:"";width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--rose))}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* GYM */
+.gym{background:var(--plum);color:var(--cream);border-radius:var(--r-lg);width:min(1260px,100% - 24px);margin:clamp(24px,5vw,56px) auto;overflow:hidden}
+.gym-in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;width:100%;padding-inline:clamp(20px,4vw,56px)}
+.gym-photo{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3.4}
+.gym-photo img{transform-origin:center}
+.gym-photo .tag{position:absolute;left:14px;bottom:14px;padding:6px 14px;border-radius:var(--r-pill);background:rgba(53,32,43,.7);backdrop-filter:blur(8px);font-size:.8rem;font-weight:600}
+.gym .eyebrow{color:var(--peach)}
+.gym h2{font-family:var(--font-s);text-transform:uppercase;font-weight:700;letter-spacing:.01em;font-size:clamp(2.4rem,5.4vw,4.2rem);line-height:.98}
+.gym-lead{margin-top:18px;color:rgba(255,246,240,.82);max-width:54ch}
+.gym-grid{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+.gym-grid li{padding:16px 18px;border-radius:var(--r-md);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:2px}
+.gym-grid b{font:700 1.35rem var(--font-s);letter-spacing:.06em;text-transform:uppercase;color:var(--peach)}
+.gym-grid span{font-size:.88rem;color:rgba(255,246,240,.78)}
+
+/* PROGRESS */
+.progress{display:grid;grid-template-columns:minmax(0,.8fr) 1fr;gap:clamp(20px,4vw,48px);align-items:center;padding:14px;border-radius:var(--r-lg);overflow:hidden}
+.progress .crop{overflow:hidden;border-radius:20px;aspect-ratio:1/1;max-height:520px}
+.progress .crop img{transform:scale(1.035);transform-origin:50% 100%}
+.progress-copy{padding:8px 12px 8px 0}
+.progress-copy b{display:block;font:700 clamp(2.6rem,6vw,4.4rem) var(--font-s);letter-spacing:.02em;line-height:1;background:linear-gradient(90deg,var(--peach),var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent}
+.progress-copy p{margin-top:14px;color:var(--muted);font-size:1.05rem;max-width:44ch}
+
+/* FUEL */
+.fuel{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px}
+.fuel figure{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;box-shadow:var(--shadow)}
+.fuel img{transition:transform .8s var(--ease)}
+.fuel figure:hover img{transform:scale(1.05)}
+
 /* TABLET */
 @media (max-width:1000px){
   .cards{grid-template-columns:repeat(2,1fr)}
   .links{display:none}
   .results,.plans,.steps{grid-template-columns:1fr}
+  .gym-in,.progress{grid-template-columns:1fr}
   .featured{transform:none}
   .plan,.steps li{max-width:560px;width:100%;margin-inline:auto}
 }
@@ -176,6 +220,10 @@ input,textarea{font:inherit;padding:14px 16px;border-radius:var(--r-sm);border:1
   .f1{left:-6px}.f2{right:-6px}
   .about-ph{max-width:380px;margin-inline:auto}
   .cards{grid-template-columns:1fr}
+  .fuel{grid-template-columns:1fr 1fr}
+  .fuel figure:first-child{grid-column:1/-1;aspect-ratio:4/3}
+  .gym-grid{grid-template-columns:1fr}
+  .ticker li{font-size:1.2rem}
   .brand-name{display:none}
   .nav{padding:8px 10px 8px 12px}
   .nav-actions .lang{display:none}
