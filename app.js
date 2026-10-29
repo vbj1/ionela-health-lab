@@ -69,14 +69,21 @@
   apply(lang);
   document.querySelectorAll('.lang').forEach(b => b.addEventListener('click', () => apply(lang === 'ro' ? 'en' : 'ro')));
 
-  // pointer-follow specular highlight on glass
+  // pointer-follow specular highlight, only on the small glass pieces and at most once per frame
+  let pm = null, pmQueued = false;
   document.addEventListener('pointermove', e => {
-    const g = e.target.closest && e.target.closest('.glass');
+    const g = e.target.closest && e.target.closest('.nav,.cap,.note,.dock');
     if (!g) return;
-    const r = g.getBoundingClientRect();
-    g.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-    g.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  });
+    pm = { g, x: e.clientX, y: e.clientY };
+    if (pmQueued) return;
+    pmQueued = true;
+    requestAnimationFrame(() => {
+      pmQueued = false;
+      const r = pm.g.getBoundingClientRect();
+      pm.g.style.setProperty('--mx', (pm.x - r.left) + 'px');
+      pm.g.style.setProperty('--my', (pm.y - r.top) + 'px');
+    });
+  }, { passive: true });
 
   // reveal on scroll
   const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { threshold: .12 });

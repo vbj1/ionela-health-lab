@@ -388,3 +388,27 @@ input:focus,textarea:focus{border-color:var(--ink);outline:none}
   .foot-bottom{flex-direction:column;align-items:center;text-align:center}
 }
 .foot-brand .brand{order:0}
+
+/* ===== performance pass: keep the look, drop the expensive paints ===== */
+/* soft background glows as plain gradients: no blur filter, no animation */
+.orbs i{filter:none;animation:none}
+.o1{width:60vmax;height:60vmax;left:-20vmax;top:-20vmax;background:radial-gradient(circle,rgba(255,180,162,.85),rgba(255,180,162,0) 62%)}
+.o2{width:52vmax;height:52vmax;right:-16vmax;top:22vh;background:radial-gradient(circle,rgba(255,138,143,.45),rgba(255,138,143,0) 62%);opacity:1}
+.o3{width:50vmax;height:50vmax;left:14vw;bottom:-22vmax;background:radial-gradient(circle,rgba(207,227,196,.9),rgba(207,227,196,0) 62%);opacity:1}
+
+/* real backdrop blur only on the few small pieces that float over content */
+.glass{-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 24px -14px rgba(255,90,95,.35)}
+.glass::before{background:radial-gradient(220px circle at var(--mx) var(--my),rgba(255,255,255,.35),transparent 60%);mix-blend-mode:normal;opacity:0}
+.nav.glass::before,.cap.glass::before,.note.glass::before,.dock.glass::before{opacity:.8}
+.nav.glass,.dock.glass,.cap.glass,.note.glass{-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%)}
+.moments-track figcaption.glass{background:rgba(255,255,255,.84)}
+.card.glass,.plan.glass,.progress.glass,details.glass,.steps li.glass{background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(255,255,255,.5))}
+
+/* photo warmth without blend modes */
+.photo::after,.gym-photo::after,.moments-track figure::after{mix-blend-mode:normal;background:linear-gradient(180deg,transparent 60%,rgba(255,90,95,.16))}
+
+/* isolate repaints */
+.band,.manifesto,.gym,.site-foot{contain:paint}
+.ticker{contain:paint}
+.ticker-track,.moments-track{will-change:transform}
+.hero-visual .photo img,.gym-photo img{will-change:transform}

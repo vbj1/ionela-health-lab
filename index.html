@@ -9,7 +9,8 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/photos/portrait.webp" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -61,7 +62,7 @@
       </ul>
     </div>
     <div class="hero-visual">
-      <div class="photo"><img src="assets/photos/portrait.webp" alt="Ionela, antrenor personal, rezemată de o bară la sală" fetchpriority="high"></div>
+      <div class="photo"><img decoding="async" src="assets/photos/portrait.webp" alt="Ionela, antrenor personal, rezemată de o bară la sală" fetchpriority="high"></div>
       <span class="sticker">@ionela_health_lab</span>
       <div class="note glass"><b data-i18n="note.t">Fără rușine.</b><span data-i18n="note.s">Fără extreme. Doar progres.</span></div>
     </div>
@@ -80,7 +81,7 @@
   <div class="band">
   <i class="deco o" data-speed="180" style="--x:4%;--y:8%;--s:180px;--r:-14deg" aria-hidden="true"></i><i class="deco f" data-speed="210" style="--x:90%;--y:70%;--s:210px;--r:16deg" aria-hidden="true"></i>
   <section class="wrap about" id="despre">
-    <div class="photo about-ph"><img src="assets/photos/gym-mirror.webp" alt="Ionela la sală, în fața oglinzii" loading="lazy"></div>
+    <div class="photo about-ph"><img decoding="async" src="assets/photos/gym-mirror.webp" alt="Ionela la sală, în fața oglinzii" loading="lazy"></div>
     <div class="about-copy">
       <p class="eyebrow" data-i18n="about.eyebrow">Despre mine</p>
       <h2 data-i18n="about.title">Bună, sunt Ionela.</h2>
@@ -106,7 +107,7 @@
   <!-- GYM -->
   <section class="gym" id="sala">
     <div class="wrap gym-in">
-      <div class="gym-photo"><img src="assets/photos/deadlift.png" alt="Ionela execută o îndreptare cu bara la sală" loading="lazy"><span class="cap glass" data-i18n="gym.cap">Forța se simte, nu doar se vede.</span></div>
+      <div class="gym-photo"><img decoding="async" src="assets/photos/deadlift.jpg" alt="Ionela execută o îndreptare cu bara la sală" loading="lazy"><span class="cap glass" data-i18n="gym.cap">Forța se simte, nu doar se vede.</span></div>
       <div class="gym-copy">
         <p class="eyebrow" data-i18n="gym.eyebrow">În sală</p>
         <h2 data-i18n="gym.title">Aici afli cât de puternică ești.</h2>
@@ -165,7 +166,7 @@
     </div>
     <!-- TODO: confirmă acordul clientei înainte de publicare -->
     <div class="progress glass">
-      <div class="crop"><img src="assets/photos/progress.webp" alt="O clientă la același exercițiu cu bara, în 2024 și în 2025" loading="lazy"></div>
+      <div class="crop"><img decoding="async" src="assets/photos/progress.webp" alt="O clientă la același exercițiu cu bara, în 2024 și în 2025" loading="lazy"></div>
       <div class="progress-copy">
         <b>2024 → 2025</b>
         <p data-i18n="res.p">O clientă, același exercițiu, un an de consecvență. Execuție mai stabilă, postură mai bună și mai multă încredere în fiecare repetare.</p>
@@ -184,9 +185,9 @@
       <p class="lead" data-i18n="fuel.lead">Fără alimente interzise și fără vinovăție. Mese simple, colorate, bogate în proteine, pe care chiar ai chef să le mănânci.</p>
     </div>
     <div class="fuel">
-      <figure><img src="assets/photos/breakfast.webp" alt="Farfurie de mic dejun cu ouă fierte, roșii cherry, căpșuni și tartine cu avocado" loading="lazy"></figure>
-      <figure><img src="assets/photos/bowl.webp" alt="Bol cu iaurt, fructul dragonului, mure, căpșuni și semințe de chia" loading="lazy"></figure>
-      <figure><img src="assets/photos/waffles.webp" alt="Vafe cu iaurt, căpșuni, afine și miere" loading="lazy"></figure>
+      <figure><img decoding="async" src="assets/photos/breakfast.webp" alt="Farfurie de mic dejun cu ouă fierte, roșii cherry, căpșuni și tartine cu avocado" loading="lazy"></figure>
+      <figure><img decoding="async" src="assets/photos/bowl.webp" alt="Bol cu iaurt, fructul dragonului, mure, căpșuni și semințe de chia" loading="lazy"></figure>
+      <figure><img decoding="async" src="assets/photos/waffles.webp" alt="Vafe cu iaurt, căpșuni, afine și miere" loading="lazy"></figure>
     </div>
   </section>
   </div>
@@ -195,12 +196,12 @@
   <section class="moments" id="momente" aria-label="Momente">
     <div class="wrap moments-head"><p class="eyebrow" data-i18n="mo.eyebrow">Momente</p><h2 data-i18n="mo.title">Ce rămâne după fiecare antrenament</h2></div>
     <div class="moments-track">
-      <figure><img src="assets/photos/deadlift.png" alt="Îndreptare cu bara la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.1">Forță</figcaption></figure>
-      <figure><img src="assets/photos/breakfast.webp" alt="Mic dejun echilibrat" loading="lazy"><figcaption class="glass" data-i18n="mo.2">Echilibru</figcaption></figure>
-      <figure><img src="assets/photos/portrait.webp" alt="Ionela la bara de la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.3">Încredere</figcaption></figure>
-      <figure><img src="assets/photos/bowl.webp" alt="Bol cu fructe și semințe de chia" loading="lazy"><figcaption class="glass" data-i18n="mo.4">Bucurie</figcaption></figure>
-      <figure><img src="assets/photos/gym-mirror.webp" alt="Ionela la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.5">Disciplină</figcaption></figure>
-      <figure><img src="assets/photos/waffles.webp" alt="Vafe cu fructe de pădure" loading="lazy"><figcaption class="glass" data-i18n="mo.6">Blândețe</figcaption></figure>
+      <figure><img decoding="async" src="assets/photos/deadlift.jpg" alt="Îndreptare cu bara la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.1">Forță</figcaption></figure>
+      <figure><img decoding="async" src="assets/photos/breakfast.webp" alt="Mic dejun echilibrat" loading="lazy"><figcaption class="glass" data-i18n="mo.2">Echilibru</figcaption></figure>
+      <figure><img decoding="async" src="assets/photos/portrait.webp" alt="Ionela la bara de la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.3">Încredere</figcaption></figure>
+      <figure><img decoding="async" src="assets/photos/bowl.webp" alt="Bol cu fructe și semințe de chia" loading="lazy"><figcaption class="glass" data-i18n="mo.4">Bucurie</figcaption></figure>
+      <figure><img decoding="async" src="assets/photos/gym-mirror.webp" alt="Ionela la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.5">Disciplină</figcaption></figure>
+      <figure><img decoding="async" src="assets/photos/waffles.webp" alt="Vafe cu fructe de pădure" loading="lazy"><figcaption class="glass" data-i18n="mo.6">Blândețe</figcaption></figure>
     </div>
   </section>
 

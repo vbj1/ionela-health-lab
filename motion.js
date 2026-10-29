@@ -77,23 +77,7 @@ if (!calm) {
     scroll(animate(gymImg, { y: ["-6%", "6%"] }, { ease: "linear" }), { target: gymPhoto, offset: ["start end", "end start"] });
   }
 
-  // floating rounded boxes drift at their own pace
-  $(".deco").forEach(d => {
-    const k = Math.min(+d.dataset.speed || 160, 260) * 0.35;
-    scroll(animate(d, { y: [-k, k], rotate: [-7, 7] }, { ease: "linear" }), { target: d.parentElement, offset: ["start end", "end start"] });
-  });
-
-  // 3D tilt on the hero photo (desktop)
-  const vis = $(".hero-visual .photo")[0];
-  if (vis && matchMedia("(hover:hover)").matches) {
-    const wrap = vis.parentElement;
-    wrap.addEventListener("pointermove", e => {
-      const r = wrap.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
-      animate(vis, { rotateY: px * 8, rotateX: -py * 8, transformPerspective: 900 }, spring);
-    });
-    wrap.addEventListener("pointerleave", () => animate(vis, { rotateX: 0, rotateY: 0 }, spring));
-  }
+  // (decorative boxes stay still: scroll-linked motion on a dozen of them cost more than it gave)
 
   // magnetic buttons
   if (matchMedia("(hover:hover)").matches) {
@@ -117,7 +101,10 @@ if (!calm) {
     spans.forEach(sp => (sp.style.opacity = 0.2));
     stopMf = scroll(p => {
       const n = spans.length;
-      spans.forEach((sp, i) => { sp.style.opacity = Math.min(1, Math.max(0.2, (p * (n + 4) - i) / 3 + 0.2)); });
+      spans.forEach((sp, i) => {
+        const v = (Math.min(1, Math.max(0.2, (p * (n + 4) - i) / 3 + 0.2))).toFixed(2);
+        if (sp.dataset.o !== v) { sp.dataset.o = v; sp.style.opacity = v; }
+      });
     }, { target: mf, offset: ["start 85%", "end 55%"] });
   };
   if (mf) {
