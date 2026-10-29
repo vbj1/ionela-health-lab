@@ -13,9 +13,11 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="progress-bar" aria-hidden="true"></div>
+<div class="orbs" aria-hidden="true"><i class="o1"></i><i class="o2"></i><i class="o3"></i></div>
 
 <!-- Desktop top nav  -->
-<header class="nav" id="nav">
+<header class="nav glass" id="nav">
   <a class="brand" href="#top" aria-label="Ionela Health Lab"><svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#FF5A5F"/><g fill="#1D1418"><circle cx="24" cy="12.5" r="3.6"/><rect x="20.8" y="19.5" width="6.4" height="19" rx="3.2"/><rect x="9" y="16" width="30" height="3" rx="1.5"/><rect x="7" y="11.5" width="3.6" height="12" rx="1.8"/><rect x="37.4" y="11.5" width="3.6" height="12" rx="1.8"/></g></svg><span class="wm"><b>ionela</b> health lab<i>.</i></span></a>
   <nav class="links" aria-label="Principal">
     <a href="#despre" data-i18n="nav.about">Despre</a>
@@ -32,7 +34,7 @@
 </header>
 
 <!-- Mobile bottom dock  -->
-<nav class="dock" aria-label="Mobil">
+<nav class="dock glass" aria-label="Mobil">
   <a href="#top" aria-label="Home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="dock.home">Acasă</span></a>
   <a href="#sala"><svg viewBox="0 0 24 24"><path d="M6 8v8M18 8v8M3 10v4M21 10v4M6 12h12"/></svg><span data-i18n="dock.gym">Sala</span></a>
   <a href="#preturi"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.4 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.4 9.3l6-.7z"/></svg><span data-i18n="dock.pricing">Pachete</span></a>
@@ -41,11 +43,13 @@
 
 <main id="top">
   <!-- HERO -->
+  <div class="band band-hero">
+  <i class="deco f" data-speed="220" style="--x:-60px;--y:10%;--s:220px;--r:18deg" aria-hidden="true"></i><i class="deco o" data-speed="150" style="--x:62%;--y:-40px;--s:150px;--r:-12deg" aria-hidden="true"></i><i class="deco f" data-speed="260" style="--x:88%;--y:60%;--s:260px;--r:24deg" aria-hidden="true"></i>
   <section class="hero wrap">
     <div class="hero-copy">
       <p class="kicker" data-i18n="hero.chip">Brașov · Sală · Online</p>
       <h1 data-i18n-html="hero.title">Iubește-ți corpul <em>în timp ce</em> îl transformi.</h1>
-      <p class="lead" data-i18n="hero.lead">Antrenamente de forță la sală și nutriție fără extreme, construite în jurul vieții tale. Împreună, pas cu pas, cu rezultate care rămân.</p>
+      <p class="lead" data-i18n="hero.lead">Nu e despre a deveni altcineva. E despre a te simți puternică, liniștită și mândră de corpul tău, antrenament după antrenament, masă după masă.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#contact" data-i18n="hero.cta1">Începe transformarea</a>
         <a class="btn btn-ghost" href="#programe" data-i18n="hero.cta2">Vezi programele</a>
@@ -59,8 +63,10 @@
     <div class="hero-visual">
       <div class="photo"><img src="assets/photos/portrait.webp" alt="Ionela, antrenor personal, rezemată de o bară la sală" fetchpriority="high"></div>
       <span class="sticker">@ionela_health_lab</span>
+      <div class="note glass"><b data-i18n="note.t">Fără rușine.</b><span data-i18n="note.s">Fără extreme. Doar progres.</span></div>
     </div>
   </section>
+  </div>
 
   <!-- TICKER -->
   <div class="ticker" aria-hidden="true">
@@ -71,12 +77,14 @@
   </div>
 
   <!-- ABOUT -->
+  <div class="band">
+  <i class="deco o" data-speed="180" style="--x:4%;--y:8%;--s:180px;--r:-14deg" aria-hidden="true"></i><i class="deco f" data-speed="210" style="--x:90%;--y:70%;--s:210px;--r:16deg" aria-hidden="true"></i>
   <section class="wrap about" id="despre">
     <div class="photo about-ph"><img src="assets/photos/gym-mirror.webp" alt="Ionela la sală, în fața oglinzii" loading="lazy"></div>
     <div class="about-copy">
       <p class="eyebrow" data-i18n="about.eyebrow">Despre mine</p>
       <h2 data-i18n="about.title">Bună, sunt Ionela.</h2>
-      <p data-i18n="about.p1">Sunt antrenor personal și nutriționist, iar sala e a doua mea casă. Misiunea mea e simplă: să te ajut să te simți bine în pielea ta. Cred într-o abordare blândă, dar consecventă, fără rușine, fără interdicții și fără soluții-minune.</p>
+      <p data-i18n="about.p1">Sunt antrenor personal și nutriționist, iar sala e a doua mea casă. Știu cât de mult se schimbă o femeie când descoperă că e mai puternică decât credea, și vreau să simți și tu asta. Blând, dar consecvent: fără rușine, fără interdicții, fără soluții-minune.</p>
       <p data-i18n="about.p2">La Ionela Health Lab combin știința nutriției cu antrenamentul de forță și mișcare plăcută, într-un plan făcut doar pentru tine și pentru ritmul tău de viață.</p>
       <ul class="ticks">
         <li data-i18n="about.t1">Abordare centrată pe femei</li>
@@ -85,15 +93,24 @@
       </ul>
     </div>
   </section>
+  </div>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto" aria-label="Manifest">
+    <i class="deco o" data-speed="240" style="--x:-4%;--y:-30%;--s:240px;--r:14deg;border-color:rgba(29,20,24,.16)" aria-hidden="true"></i>
+    <i class="deco o" data-speed="180" style="--x:88%;--y:55%;--s:200px;--r:-18deg;border-color:rgba(29,20,24,.16)" aria-hidden="true"></i>
+    <p class="eyebrow" data-i18n="mf.eyebrow">Ce cred eu</p>
+    <p class="manifesto-text" id="manifesto" data-i18n="mf.text">Nu te transformi ca să placi altcuiva. Te transformi ca să te simți acasă în corpul tău: puternică, liniștită și mândră de fiecare pas.</p>
+  </section>
 
   <!-- GYM -->
   <section class="gym" id="sala">
     <div class="wrap gym-in">
-      <div class="gym-photo"><img src="assets/photos/deadlift.png" alt="Ionela execută o îndreptare cu bara la sală" loading="lazy"><span class="tag">@ionela_health_lab</span></div>
+      <div class="gym-photo"><img src="assets/photos/deadlift.png" alt="Ionela execută o îndreptare cu bara la sală" loading="lazy"><span class="cap glass" data-i18n="gym.cap">Forța se simte, nu doar se vede.</span></div>
       <div class="gym-copy">
         <p class="eyebrow" data-i18n="gym.eyebrow">În sală</p>
-        <h2 data-i18n="gym.title">Forța se construiește la sală.</h2>
-        <p class="gym-lead" data-i18n="gym.lead">Antrenamente de forță pentru femei, cu tehnică corectă și progresie clară. Înveți exercițiile de bază, genuflexiuni, îndreptări, împingeri, fără intimidare și fără să-ți fie rușine de greutăți.</p>
+        <h2 data-i18n="gym.title">Aici afli cât de puternică ești.</h2>
+        <p class="gym-lead" data-i18n="gym.lead">Antrenamente de forță pentru femei, cu tehnică corectă și progresie clară. Înveți exercițiile de bază fără intimidare și fără să-ți fie rușine de greutăți. Prima bară ridicată rămâne o amintire.</p>
         <ul class="gym-grid">
           <li><b data-i18n="gym.1t">Forță</b><span data-i18n="gym.1p">Ridici greu, în siguranță</span></li>
           <li><b data-i18n="gym.2t">Tonifiere</b><span data-i18n="gym.2p">Siluetă definită, nu doar slăbire</span></li>
@@ -106,43 +123,48 @@
   </section>
 
   <!-- PROGRAMS -->
+  <div class="band band-blush">
+  <i class="deco f" data-speed="260" style="--x:-80px;--y:-60px;--s:260px;--r:20deg" aria-hidden="true"></i><i class="deco o" data-speed="200" style="--x:84%;--y:72%;--s:200px;--r:-16deg" aria-hidden="true"></i>
   <section class="wrap" id="programe">
     <div class="sec-head">
       <p class="eyebrow" data-i18n="prog.eyebrow">Programe</p>
       <h2 data-i18n="prog.title">Alege drumul potrivit pentru tine</h2>
     </div>
     <div class="cards">
-      <article class="card tilt">
+      <article class="card glass">
         <span class="num">01</span>
         <h3 data-i18n="prog.1t">Antrenament personal la sală</h3>
         <p data-i18n="prog.1p">Ședințe față în față în Brașov, la sală: tehnică corectă, încărcare progresivă și motivație reală.</p>
       </article>
-      <article class="card tilt">
+      <article class="card glass">
         <span class="num">02</span>
         <h3 data-i18n="prog.2t">Coaching online</h3>
         <p data-i18n="prog.2p">Plan de antrenament în aplicație, feedback pe video și check-in-uri săptămânale, de oriunde ai fi.</p>
       </article>
-      <article class="card tilt">
+      <article class="card glass">
         <span class="num">03</span>
         <h3 data-i18n="prog.3t">Nutriție personalizată</h3>
         <p data-i18n="prog.3p">Meniuri echilibrate și flexibile, învățate pe înțelesul tău. Fără foame, fără vinovăție.</p>
       </article>
-      <article class="card tilt">
+      <article class="card glass">
         <span class="num">04</span>
         <h3 data-i18n="prog.4t">Transformare 12 săptămâni</h3>
         <p data-i18n="prog.4p">Programul complet: antrenament + nutriție + mindset, cu suport zilnic pe tot parcursul.</p>
       </article>
     </div>
   </section>
+  </div>
 
   <!-- RESULTS -->
+  <div class="band">
+  <i class="deco f" data-speed="220" style="--x:90%;--y:-30px;--s:220px;--r:12deg" aria-hidden="true"></i><i class="deco o" data-speed="170" style="--x:2%;--y:78%;--s:170px;--r:-20deg" aria-hidden="true"></i>
   <section class="wrap" id="rezultate">
     <div class="sec-head">
       <p class="eyebrow" data-i18n="res.eyebrow">Rezultate</p>
-      <h2 data-i18n="res.title">Progresul se vede, un an după altul</h2>
+      <h2 data-i18n="res.title">Progresul se simte înainte să se vadă</h2>
     </div>
     <!-- TODO: confirmă acordul clientei înainte de publicare -->
-    <div class="progress">
+    <div class="progress glass">
       <div class="crop"><img src="assets/photos/progress.webp" alt="O clientă la același exercițiu cu bara, în 2024 și în 2025" loading="lazy"></div>
       <div class="progress-copy">
         <b>2024 → 2025</b>
@@ -150,13 +172,16 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- FUEL -->
+  <div class="band band-sage">
+  <i class="deco o" data-speed="230" style="--x:-70px;--y:20%;--s:230px;--r:-10deg" aria-hidden="true"></i><i class="deco f" data-speed="240" style="--x:86%;--y:-50px;--s:240px;--r:22deg" aria-hidden="true"></i>
   <section class="wrap" id="nutritie">
     <div class="sec-head">
       <p class="eyebrow" data-i18n="fuel.eyebrow">Nutriție</p>
-      <h2 data-i18n="fuel.title">Mâncare care îți dă energie pentru antrenament</h2>
-      <p class="lead" data-i18n="fuel.lead">Fără alimente interzise. Mese simple, colorate și bogate în proteine, pe care chiar ai chef să le mănânci.</p>
+      <h2 data-i18n="fuel.title">Mâncare care te hrănește, nu te pedepsește</h2>
+      <p class="lead" data-i18n="fuel.lead">Fără alimente interzise și fără vinovăție. Mese simple, colorate, bogate în proteine, pe care chiar ai chef să le mănânci.</p>
     </div>
     <div class="fuel">
       <figure><img src="assets/photos/breakfast.webp" alt="Farfurie de mic dejun cu ouă fierte, roșii cherry, căpșuni și tartine cu avocado" loading="lazy"></figure>
@@ -164,8 +189,24 @@
       <figure><img src="assets/photos/waffles.webp" alt="Vafe cu iaurt, căpșuni, afine și miere" loading="lazy"></figure>
     </div>
   </section>
+  </div>
+
+  <!-- MOMENTS -->
+  <section class="moments" id="momente" aria-label="Momente">
+    <div class="wrap moments-head"><p class="eyebrow" data-i18n="mo.eyebrow">Momente</p><h2 data-i18n="mo.title">Ce rămâne după fiecare antrenament</h2></div>
+    <div class="moments-track">
+      <figure><img src="assets/photos/deadlift.png" alt="Îndreptare cu bara la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.1">Forță</figcaption></figure>
+      <figure><img src="assets/photos/breakfast.webp" alt="Mic dejun echilibrat" loading="lazy"><figcaption class="glass" data-i18n="mo.2">Echilibru</figcaption></figure>
+      <figure><img src="assets/photos/portrait.webp" alt="Ionela la bara de la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.3">Încredere</figcaption></figure>
+      <figure><img src="assets/photos/bowl.webp" alt="Bol cu fructe și semințe de chia" loading="lazy"><figcaption class="glass" data-i18n="mo.4">Bucurie</figcaption></figure>
+      <figure><img src="assets/photos/gym-mirror.webp" alt="Ionela la sală" loading="lazy"><figcaption class="glass" data-i18n="mo.5">Disciplină</figcaption></figure>
+      <figure><img src="assets/photos/waffles.webp" alt="Vafe cu fructe de pădure" loading="lazy"><figcaption class="glass" data-i18n="mo.6">Blândețe</figcaption></figure>
+    </div>
+  </section>
 
   <!-- PRICING -->
+  <div class="band band-blush">
+  <i class="deco f" data-speed="240" style="--x:-60px;--y:60%;--s:240px;--r:16deg" aria-hidden="true"></i><i class="deco o" data-speed="190" style="--x:88%;--y:-40px;--s:190px;--r:-14deg" aria-hidden="true"></i>
   <section class="wrap" id="preturi">
     <div class="sec-head">
       <p class="eyebrow" data-i18n="pr.eyebrow">Pachete</p>
@@ -173,7 +214,7 @@
       <p class="demo-note" data-i18n="pr.note">Prețurile se stabilesc împreună cu Ionela.</p>
     </div>
     <div class="plans">
-      <article class="plan">
+      <article class="plan glass">
         <h3 data-i18n="pr.1t">Start</h3>
         <p class="price" data-i18n="pr.ask">La cerere</p>
         <ul><li data-i18n="pr.1a">Consultație inițială</li><li data-i18n="pr.1b">Plan de antrenament</li><li data-i18n="pr.1c">Recomandări nutriționale</li></ul>
@@ -186,7 +227,7 @@
         <ul><li data-i18n="pr.2a">Antrenament + meniu personalizat</li><li data-i18n="pr.2b">Check-in săptămânal</li><li data-i18n="pr.2c">Suport zilnic pe chat</li><li data-i18n="pr.2d">Ajustări continue</li></ul>
         <a class="btn btn-primary" href="#contact" data-i18n="pr.cta">Alege</a>
       </article>
-      <article class="plan">
+      <article class="plan glass">
         <h3 data-i18n="pr.3t">Ședințe 1:1</h3>
         <p class="price" data-i18n="pr.ask">La cerere</p>
         <ul><li data-i18n="pr.3a">Antrenament față în față la sală, Brașov</li><li data-i18n="pr.3b">Tehnică și progresie</li><li data-i18n="pr.3c">Program flexibil</li></ul>
@@ -194,17 +235,18 @@
       </article>
     </div>
   </section>
+  </div>
 
   <!-- PROCESS -->
   <section class="wrap">
     <div class="sec-head">
       <p class="eyebrow" data-i18n="pc.eyebrow">Cum funcționează</p>
-      <h2 data-i18n="pc.title">3 pași simpli</h2>
+      <h2 data-i18n="pc.title">3 pași, fără grabă</h2>
     </div>
     <ol class="steps">
-      <li><span>1</span><h3 data-i18n="pc.1t">Ne cunoaștem</h3><p data-i18n="pc.1p">Discutăm obiectivele, stilul de viață și ce ți-a funcționat până acum.</p></li>
-      <li><span>2</span><h3 data-i18n="pc.2t">Primești planul</h3><p data-i18n="pc.2p">Antrenament și nutriție croite pe măsura ta, explicate clar.</p></li>
-      <li><span>3</span><h3 data-i18n="pc.3t">Evoluăm împreună</h3><p data-i18n="pc.3p">Ajustăm săptămânal și sărbătorim fiecare progres.</p></li>
+      <li class="glass"><span>1</span><h3 data-i18n="pc.1t">Ne cunoaștem</h3><p data-i18n="pc.1p">Discutăm obiectivele, stilul de viață și ce ți-a funcționat până acum.</p></li>
+      <li class="glass"><span>2</span><h3 data-i18n="pc.2t">Primești planul</h3><p data-i18n="pc.2p">Antrenament și nutriție croite pe măsura ta, explicate clar.</p></li>
+      <li class="glass"><span>3</span><h3 data-i18n="pc.3t">Evoluăm împreună</h3><p data-i18n="pc.3p">Ajustăm săptămânal și sărbătorim fiecare progres.</p></li>
     </ol>
   </section>
 
@@ -214,19 +256,20 @@
       <p class="eyebrow" data-i18n="faq.eyebrow">Întrebări frecvente</p>
       <h2 data-i18n="faq.title">Ai o nelămurire?</h2>
     </div>
-    <details><summary data-i18n="faq.1q">Pot începe dacă nu am mai făcut sport niciodată?</summary><p data-i18n="faq.1a">Sigur. Planul pornește de la nivelul tău actual și crește treptat, în siguranță.</p></details>
-    <details><summary data-i18n="faq.2q">Cum funcționează varianta online?</summary><p data-i18n="faq.2a">Primești planul în aplicație, trimiți feedback și video, iar eu ajustez săptămânal.</p></details>
-    <details><summary data-i18n="faq.3q">Trebuie să țin diete stricte?</summary><p data-i18n="faq.3a">Nu. Construim obiceiuri flexibile și sustenabile, fără alimente interzise.</p></details>
-    <details><summary data-i18n="faq.4q">Unde se țin ședințele față în față?</summary><p data-i18n="faq.4a">În Brașov. Locația exactă o stabilim la prima întâlnire.</p></details>
+    <details class="glass"><summary data-i18n="faq.1q">Pot începe dacă nu am mai făcut sport niciodată?</summary><p data-i18n="faq.1a">Sigur. Planul pornește de la nivelul tău actual și crește treptat, în siguranță.</p></details>
+    <details class="glass"><summary data-i18n="faq.2q">Cum funcționează varianta online?</summary><p data-i18n="faq.2a">Primești planul în aplicație, trimiți feedback și video, iar eu ajustez săptămânal.</p></details>
+    <details class="glass"><summary data-i18n="faq.3q">Trebuie să țin diete stricte?</summary><p data-i18n="faq.3a">Nu. Construim obiceiuri flexibile și sustenabile, fără alimente interzise.</p></details>
+    <details class="glass"><summary data-i18n="faq.4q">Unde se țin ședințele față în față?</summary><p data-i18n="faq.4a">În Brașov. Locația exactă o stabilim la prima întâlnire.</p></details>
   </section>
 
   <!-- CONTACT -->
   <section class="wrap" id="contact">
     <div class="contact">
+      <i class="deco o" data-speed="160" style="--x:62%;--y:-18%;--s:200px;--r:20deg;border-color:rgba(29,20,24,.16)" aria-hidden="true"></i>
       <div>
         <p class="eyebrow" data-i18n="ct.eyebrow">Hai să vorbim</p>
-        <h2 data-i18n="ct.title">Gata să începi?</h2>
-        <p data-i18n="ct.p">Scrie-mi și programăm o discuție introductivă. Răspund cât de repede pot.</p>
+        <h2 data-i18n="ct.title">Prima ședință e începutul.</h2>
+        <p data-i18n="ct.p">Scrie-mi și vorbim despre ce îți dorești cu adevărat. Fără presiune, fără promisiuni goale. Răspund cât de repede pot.</p>
         <a class="btn btn-primary" href="https://www.instagram.com/ionela_health_lab/" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.500" cy="6.500" r="1"/></svg>@ionela_health_lab</a>
       </div>
       <form id="form" novalidate>
