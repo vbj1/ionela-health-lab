@@ -31,6 +31,7 @@
       'pr.2t':'Transformation','pr.2a':'Training + custom meal plan','pr.2b':'Weekly check-in','pr.2c':'Daily chat support','pr.2d':'Continuous adjustments',
       'pr.3t':'1:1 Sessions','pr.3a':'Face-to-face gym training, Brașov','pr.3b':'Technique and progression','pr.3c':'Flexible schedule',
       'pc.eyebrow':'How it works','pc.title':'3 steps, no rush',
+      'ft.big':'Start today. Your body will thank you.','ft.call':'Call now','ft.tag':'Personal training and nutrition for women, in Brașov and online.','ft.nav':'Navigation','ft.contact':'Contact','ft.where':'Brașov & Online','ft.rights':'All rights reserved','ft.top':'Back to top ↑',
       'pc.1t':"We get to know each other",'pc.1p':'We talk goals, lifestyle and what has worked for you so far.',
       'pc.2t':'You get your plan','pc.2p':'Training and nutrition tailored to you, explained clearly.',
       'pc.3t':'We progress together','pc.3p':'We adjust weekly and celebrate every win.',
@@ -124,6 +125,12 @@
     history.replaceState(null, '', '#' + el.id);
     glide(el);
   }));
+
+  // tuck the quick-contact buttons away while the footer (which has the same actions) is on screen
+  const fab = document.querySelector('.fab'), foot = document.querySelector('.site-foot');
+  if (fab && foot && 'IntersectionObserver' in window) {
+    new IntersectionObserver(es => fab.classList.toggle('hide', es[0].isIntersecting), { threshold: .35 }).observe(foot);
+  }
 
   const nav = document.getElementById('nav');
   const onScroll = () => nav.classList.toggle('scrolled', scrollY > 40);

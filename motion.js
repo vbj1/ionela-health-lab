@@ -7,6 +7,11 @@ if (!calm) {
   const ease = [0.22, 1, 0.36, 1];
   const spring = { type: "spring", stiffness: 260, damping: 22 };
 
+  // quick-contact buttons pop in
+  const fabs = $(".fab a");
+  fabs.forEach(el => (el.style.opacity = 0));
+  animate(fabs, { opacity: [0, 1], scale: [0.4, 1] }, { type: "spring", stiffness: 300, damping: 18, delay: stagger(0.1, { startDelay: 1.2 }) });
+
   // reading progress bar
   const bar = $(".progress-bar")[0];
   if (bar) scroll(animate(bar, { scaleX: [0, 1] }, { ease: "linear" }));
