@@ -414,11 +414,12 @@ input:focus,textarea:focus{border-color:var(--ink);outline:none}
 .hero-visual .photo img,.gym-photo img{will-change:transform}
 
 /* ===== lite mode: phones and touch devices ===== */
-.lite .nav.glass{background:rgba(255,244,238,.94);-webkit-backdrop-filter:none;backdrop-filter:none}
-.lite .nav.glass.scrolled{background:rgba(255,247,242,.97)}
-.lite .dock.glass{background:rgba(255,255,255,.96);-webkit-backdrop-filter:none;backdrop-filter:none}
+/* the two menus keep their liquid glass on phones */
+.lite .nav.glass,.lite .dock.glass{-webkit-backdrop-filter:blur(14px) saturate(170%);backdrop-filter:blur(14px) saturate(170%)}
+.lite .dock.glass{background:linear-gradient(135deg,rgba(255,255,255,.62),rgba(255,235,228,.4));border-color:rgba(255,255,255,.7)}
 .lite .cap.glass,.lite .note.glass{background:rgba(255,255,255,.92);-webkit-backdrop-filter:none;backdrop-filter:none}
 .lite .glass::before{display:none}
+.lite .nav.glass::before,.lite .dock.glass::before{display:block;opacity:.6}
 .lite .orbs .o2{display:none}
 .lite .hero-visual .photo img{scale:1;will-change:auto}
 .lite .gym-photo img{will-change:auto}
