@@ -367,3 +367,8 @@ input:focus,textarea:focus{border-color:var(--ink);outline:none}
   .contact-actions .btn{flex:1 1 40%}
 }
 @media (prefers-reduced-motion:reduce){.fab-wa::after{animation:none}}
+
+/* official WhatsApp glyph is a filled shape */
+.i.wa{fill:currentColor;stroke:none}
+.fab-wa{background:#25D366}
+.fab .i.wa{width:26px;height:26px}
