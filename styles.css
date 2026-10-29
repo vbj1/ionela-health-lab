@@ -9,7 +9,7 @@
   --pad:clamp(48px,8vw,104px);
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:auto}
 /* land each section with its content just below the floating nav, whatever the screen height */
 .wrap[id]{scroll-margin-top:calc(92px - var(--pad))}
 .gym{scroll-margin-top:96px}

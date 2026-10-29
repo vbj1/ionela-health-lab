@@ -98,24 +98,31 @@
     if (d.get('name').trim() && d.get('contact').trim()) f.reset();
   });
 
-  // anchor links: land the section's heading just under the nav, then correct for any layout shift
-  const place = el => {
-    if (el.id === 'top') return 0;
-    const first = el.querySelector('.eyebrow, h2') || el;
-    return Math.max(0, first.getBoundingClientRect().top + scrollY - 108);
+  // anchor links: one self-driven glide, re-aimed every frame, so nothing can pull the page up and down
+  const offsetTopOf = el => { let y = 0; for (let n = el; n; n = n.offsetParent) y += n.offsetTop; return y; };
+  const place = el => (el.id === 'top' ? 0 : Math.max(0, offsetTopOf(el.querySelector('.eyebrow, h2') || el) - 108));
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let raf = 0;
+  const halt = () => { cancelAnimationFrame(raf); raf = 0; };
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(t => addEventListener(t, halt, { passive: true }));
+  const glide = el => {
+    halt();
+    const from = scrollY, t0 = performance.now();
+    const dur = calm ? 0 : Math.min(1100, Math.max(450, Math.abs(place(el) - from) * 0.3));
+    const step = now => {
+      const p = dur ? Math.min(1, (now - t0) / dur) : 1;
+      const k = 1 - Math.pow(1 - p, 4);
+      scrollTo({ top: from + (place(el) - from) * k, behavior: 'instant' });
+      raf = p < 1 ? requestAnimationFrame(step) : 0;
+    };
+    raf = requestAnimationFrame(step);
   };
   document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
     const el = document.getElementById(a.getAttribute('href').slice(1));
     if (!el) return;
     e.preventDefault();
     history.replaceState(null, '', '#' + el.id);
-    scrollTo({ top: place(el), behavior: 'smooth' });
-    let tries = 0;
-    const settle = () => {
-      const want = place(el);
-      if (Math.abs(want - scrollY) > 4 && tries++ < 3) { scrollTo({ top: want, behavior: 'smooth' }); setTimeout(settle, 700); }
-    };
-    setTimeout(settle, 900);
+    glide(el);
   }));
 
   const nav = document.getElementById('nav');
