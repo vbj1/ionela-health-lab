@@ -412,3 +412,21 @@ input:focus,textarea:focus{border-color:var(--ink);outline:none}
 .ticker{contain:paint}
 .ticker-track,.moments-track{will-change:transform}
 .hero-visual .photo img,.gym-photo img{will-change:transform}
+
+/* ===== lite mode: phones and touch devices ===== */
+.lite .nav.glass{background:rgba(255,244,238,.94);-webkit-backdrop-filter:none;backdrop-filter:none}
+.lite .nav.glass.scrolled{background:rgba(255,247,242,.97)}
+.lite .dock.glass{background:rgba(255,255,255,.96);-webkit-backdrop-filter:none;backdrop-filter:none}
+.lite .cap.glass,.lite .note.glass{background:rgba(255,255,255,.92);-webkit-backdrop-filter:none;backdrop-filter:none}
+.lite .glass::before{display:none}
+.lite .orbs .o2{display:none}
+.lite .hero-visual .photo img{scale:1;will-change:auto}
+.lite .gym-photo img{will-change:auto}
+.lite .fab-wa::after{animation:none;display:none}
+.lite .ticker-track{animation-duration:36s}
+.lite .moments{overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.lite .moments::-webkit-scrollbar{display:none}
+.lite .moments-track{will-change:auto}
+.lite .moments-track figure{scroll-snap-align:center}
+.lite .card.glass,.lite .plan.glass,.lite .progress.glass,.lite details.glass,.lite .steps li.glass{box-shadow:0 6px 16px -12px rgba(255,90,95,.35)}
+.lite .band,.lite .manifesto,.lite .gym,.lite .site-foot{contain:paint}

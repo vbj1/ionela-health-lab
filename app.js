@@ -1,4 +1,6 @@
 (() => {
+  scrollTo({ top: 0, behavior: 'instant' });
+  addEventListener('pageshow', e => { if (e.persisted) scrollTo({ top: 0, behavior: 'instant' }); });
   const T = {
     ro: {},
     en: {
@@ -129,7 +131,6 @@
     const el = document.getElementById(a.getAttribute('href').slice(1));
     if (!el) return;
     e.preventDefault();
-    history.replaceState(null, '', '#' + el.id);
     glide(el);
   }));
 

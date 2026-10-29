@@ -1,6 +1,7 @@
 import { animate, inView, scroll, stagger, hover } from "https://cdn.jsdelivr.net/npm/motion@12.23.0/+esm";
 
 const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const lite = document.documentElement.classList.contains("lite");
 const $ = (q, r = document) => [...r.querySelectorAll(q)];
 
 if (!calm) {
@@ -14,7 +15,7 @@ if (!calm) {
 
   // reading progress bar
   const bar = $(".progress-bar")[0];
-  if (bar) scroll(animate(bar, { scaleX: [0, 1] }, { ease: "linear" }));
+  if (bar && !lite) scroll(animate(bar, { scaleX: [0, 1] }, { ease: "linear" }));
 
   // hero entrance
   const heroBits = $(".hero-copy > *, .hero-visual .photo, .hero-visual .sticker, .hero-visual .note");
@@ -25,7 +26,7 @@ if (!calm) {
   $("h2").filter(h => !h.closest(".gym")).forEach(h => {
     h.style.opacity = 0;
     inView(h, () => {
-      animate(h, { opacity: [0, 1], y: [34, 0], clipPath: ["inset(0 0 100% 0)", "inset(-10% -5% -25% -5%)"] }, { duration: 0.9, ease });
+      animate(h, lite ? { opacity: [0, 1], y: [20, 0] } : { opacity: [0, 1], y: [34, 0], clipPath: ["inset(0 0 100% 0)", "inset(-10% -5% -25% -5%)"] }, { duration: lite ? 0.6 : 0.9, ease });
     }, { amount: 0.5 });
   });
 
@@ -35,7 +36,7 @@ if (!calm) {
     if (!items.length) return;
     items.forEach(el => (el.style.opacity = 0));
     inView(items[0].parentElement, () => {
-      animate(items, { opacity: [0, 1], y: [48, 0], scale: [0.94, 1] }, { duration: 0.8, delay: stagger(0.1), ease });
+      animate(items, lite ? { opacity: [0, 1], y: [28, 0] } : { opacity: [0, 1], y: [48, 0], scale: [0.94, 1] }, { duration: lite ? 0.6 : 0.8, delay: stagger(lite ? 0.06 : 0.1), ease });
     }, { amount: 0.2 });
   });
 
@@ -46,7 +47,7 @@ if (!calm) {
     gymPhoto.style.opacity = 0;
     gymBits.forEach(el => (el.style.opacity = 0));
     inView(".gym", () => {
-      animate(gymPhoto, { opacity: [0, 1], x: [-50, 0], clipPath: ["inset(0 100% 0 0 round 24px)", "inset(0 0% 0 0 round 24px)"] }, { duration: 1, ease });
+      animate(gymPhoto, lite ? { opacity: [0, 1], y: [24, 0] } : { opacity: [0, 1], x: [-50, 0], clipPath: ["inset(0 100% 0 0 round 24px)", "inset(0 0% 0 0 round 24px)"] }, { duration: lite ? 0.6 : 1, ease });
       animate(gymBits, { opacity: [0, 1], y: [24, 0] }, { duration: 0.7, delay: stagger(0.07, { startDelay: 0.2 }), ease });
     }, { amount: 0.25 });
   }
@@ -55,7 +56,7 @@ if (!calm) {
   const fuel = $(".fuel figure");
   fuel.forEach(el => (el.style.opacity = 0));
   if (fuel.length) inView(".fuel", () => {
-    animate(fuel, { opacity: [0, 1], y: [40, 0], scale: [0.94, 1] }, { duration: 0.8, delay: stagger(0.12), ease });
+    animate(fuel, lite ? { opacity: [0, 1], y: [24, 0] } : { opacity: [0, 1], y: [40, 0], scale: [0.94, 1] }, { duration: lite ? 0.6 : 0.8, delay: stagger(lite ? 0.08 : 0.12), ease });
   }, { amount: 0.2 });
 
   const prog = $(".progress")[0];
@@ -64,14 +65,14 @@ if (!calm) {
     const img = $(".crop img", prog)[0];
     inView(prog, () => {
       animate(prog, { opacity: [0, 1], y: [32, 0] }, { duration: 0.8, ease });
-      if (img) animate(img, { clipPath: ["inset(0 100% 0 0)", "inset(0 0% 0 0)"] }, { duration: 1.2, delay: 0.2, ease });
+      if (img && !lite) animate(img, { clipPath: ["inset(0 100% 0 0)", "inset(0 0% 0 0)"] }, { duration: 1.2, delay: 0.2, ease });
     }, { amount: 0.25 });
   }
 
   // photo parallax
   const heroImg = $(".hero-visual .photo img")[0];
-  if (heroImg) scroll(animate(heroImg, { y: [0, -40] }, { ease: "linear" }), { target: heroImg.parentElement, offset: ["start end", "end start"] });
-  if (gymPhoto) {
+  if (heroImg && !lite) scroll(animate(heroImg, { y: [0, -40] }, { ease: "linear" }), { target: heroImg.parentElement, offset: ["start end", "end start"] });
+  if (gymPhoto && !lite) {
     const gymImg = $("img", gymPhoto)[0];
     gymImg.style.scale = 1.12;
     scroll(animate(gymImg, { y: ["-6%", "6%"] }, { ease: "linear" }), { target: gymPhoto, offset: ["start end", "end start"] });
@@ -107,7 +108,7 @@ if (!calm) {
       });
     }, { target: mf, offset: ["start 85%", "end 55%"] });
   };
-  if (mf) {
+  if (mf && !lite) {
     const rebuildPlain = () => { mf.textContent = mf.textContent.replace(/\s+/g, " "); };
     buildMf();
     document.addEventListener("langchange", () => { rebuildPlain(); buildMf(); });
@@ -115,7 +116,7 @@ if (!calm) {
 
   // moments: gallery glides sideways while you scroll past
   const mo = $(".moments")[0], track = $(".moments-track")[0];
-  if (mo && track) {
+  if (mo && track && !lite) {
     mo.style.overflowX = "hidden";
     scroll(p => {
       const dist = Math.max(0, track.scrollWidth - innerWidth);
